@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View,TextInput,StatusBar,ScrollView} from 'react-native';
+import {Text, View,TextInput,StatusBar,ScrollView,Alert} from 'react-native';
 import AppHeader from '../../components/AppHeader';
 import { UiColor, Spacing, FontSize } from '../../theme';
 import { TouchableHighlight } from 'react-native-gesture-handler';
@@ -9,7 +9,7 @@ import styles from './styles';
 export default class Supports extends Component {
   render() {
     return (
-      <ScrollView style={{flex:1}}>
+      <ScrollView style={{flex:1}} showsVerticalScrollIndicator={false}>
         <StatusBar 
           translucent 
           backgroundColor={UiColor.ORANGE} 
@@ -20,6 +20,7 @@ export default class Supports extends Component {
           bgColor={UiColor.ORANGE}
           barType='light-content'
           name='Support'
+          titleAlign='center'
         />
         <View style={{
             paddingHorizontal:Spacing.SCALE_10,
@@ -88,7 +89,13 @@ export default class Supports extends Component {
                 backgroundColor:UiColor.ORANGE,
                 borderRadius:Spacing.SCALE_10
               }}
-            >
+              onPress={() => Alert.alert(
+                    '',
+                    'Submit successfully!',
+                    [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                    {cancelable: false},
+                  )}
+                >
               <Text style={{
                 fontSize:FontSize.FONT_SIZE_16,
                 color:UiColor.WHITE
@@ -101,6 +108,12 @@ export default class Supports extends Component {
                     name='ios-call'
                     size={Spacing.SCALE_30}
                     color={UiColor.Blue}
+                    onPress={() => Alert.alert(
+                      '',
+                      'Feature coming soon!',
+                      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                      {cancelable: false},
+                    )}
                   />
               </View>
               <View style={styles.IconContainer}>
@@ -108,6 +121,12 @@ export default class Supports extends Component {
                     name='ios-logo-google'
                     size={Spacing.SCALE_30}
                     color={UiColor.RED}
+                    onPress={() => Alert.alert(
+                      '',
+                      'Feature coming soon!',
+                      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                      {cancelable: false},
+                    )}
                   />
               </View>
               <View style={styles.IconContainer}>
@@ -115,6 +134,12 @@ export default class Supports extends Component {
                     name='ios-logo-whatsapp'
                     size={Spacing.SCALE_30}
                     color={UiColor.WhatsAppGreen}
+                    onPress={() => Alert.alert(
+                        '',
+                        'Feature coming soon!',
+                        [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                        {cancelable: false},
+                      )}
                   />
               </View>
               

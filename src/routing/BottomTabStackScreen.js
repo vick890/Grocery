@@ -6,6 +6,7 @@ import MainStackScreen from './MainStackScreen';
 import MyOrders from '../screens/MyOrders';
 import Supports from '../screens/Supports';
 import Accounts from '../screens/Accounts';
+import MyCart from '../screens/MyCart/myCart';
 import MyAddress from '../screens/MyAddress';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -44,10 +45,10 @@ export default class BottomTabStackScreen extends Component {
           }}
         />
         <Tab.Screen
-          name="MyOrders"
-          component={MyOrders}
+          name="MyCart"
+          component={MyCart}
           options={{
-            tabBarLabel: 'MyOrder',
+            tabBarLabel: 'MyCart',
             tabBarColor: UiColor.WHITE,
             tabBarIcon: ({focused}) => {
               return focused ? (

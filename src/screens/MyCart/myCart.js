@@ -3,10 +3,12 @@ import {Text, View, Image,StatusBar,ScrollView} from 'react-native';
 import AppHeader from '../../components/AppHeader';
 import {IconAsset, UiColor, TextSize, FontSize, Spacing} from '../../theme';
 import {h, w} from '../../utils/Dimensions';
-import styles from './styles';
+import styles from './style';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-export default class MyOrders extends Component {
-  render() {
+
+
+export default({navigation}) => {
+    console.log('navigation',navigation)
     return (
       <View style={{flex: 1}}>
         <StatusBar 
@@ -15,21 +17,22 @@ export default class MyOrders extends Component {
         <AppHeader 
           props={this.props} 
           bgColor={UiColor.ORANGE} 
-          name='Your Order' 
-          showIcon={true}
+          name='Cart' 
+          showIcon={false}
+          titleAlign='center'
         />
         <ScrollView style={styles.mainContainer}>
           <View style={styles.imageContainer}>
             <Image
               resizeMode="contain"
               style={styles.img}
-              source={IconAsset.ic_order}
+              source={IconAsset.ic_shopping_cart}
             />
-            <Text style={styles.emptyTxt}>You haven't shop yet</Text>
+            <Text style={styles.emptyTxt}>No Items</Text>
           </View>
           <TouchableOpacity
             activeOpacity={0.9}
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => navigation.navigate('Home')}
             style={styles.btn}>
             <Text style={styles.btnText}>Start Shopping</Text>
           </TouchableOpacity> 
@@ -37,4 +40,4 @@ export default class MyOrders extends Component {
       </View>
     );
   }
-}
+

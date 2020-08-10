@@ -4,6 +4,7 @@ import styles from './styles';
 import AppHeader from '../../components/AppHeader';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import {UiColor} from '../../theme';
+
 const addressdata = [
   {
     address:
@@ -58,11 +59,12 @@ export default class MyAddress extends Component {
     const {editAddress, selectedIndex} = this.state;
     return (
       <View style={styles.mainContainer}>
-        <AppHeader 
+        <AppHeader
           props={this.props} 
           bgColor={UiColor.ORANGE} 
           showIcon={true}
           showIcon={true}
+          name='Address'
         />
         <View style={{flex: 1}}>
           <FlatList
@@ -92,11 +94,11 @@ export default class MyAddress extends Component {
         <View style={styles.buttonbox}>
           <TouchableOpacity
             style={styles.button}
-            // onPress={() => {
-            //   {
-            //     this.props.navigation.navigate('AddedCategories');
-            //   }
-            // }}
+            onPress={() => {
+              {
+                this.props.navigation.navigate('NewAddress');
+              }
+            }}
           >
             <Text style={styles.button_text}>Add New Address</Text>
           </TouchableOpacity>

@@ -26,7 +26,7 @@ export default class AppHeader extends Component {
             }
             </TouchableOpacity>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>{this.props.name}</Text>
+              <Text style={{...styles.titleText,textAlign:this.props.titleAlign}}>{this.props.name}</Text>
             </View>
             <Image
               style={styles.shoppingCartContainer}
@@ -41,11 +41,12 @@ export default class AppHeader extends Component {
 
 AppHeader.defaultType = {
   bgColor:UiColor.ORANGE,
-  showIcon:true
+  showIcon:true,
 }
 AppHeader.propTypes = {
   name :PropTypes.string,
   bgColor:PropTypes.string,
   barType:PropTypes.string,
-  showIcon:PropTypes.bool
+  showIcon:PropTypes.bool,
+  titleAlign:PropTypes.string
 }

@@ -9,6 +9,9 @@ import AddedCategories from '../screens/AddedCatergories';
 import Items from '../screens/Items';
 import Filter from '../screens/Filter';
 import MyAddress from '../screens/MyAddress';
+import MyOrders from '../screens/MyOrders';
+import NewAddress from '../screens/MyAddress/newAddress';
+
 const MainStack = createStackNavigator();
 
 export default class MainStackScreen extends Component {
@@ -53,6 +56,16 @@ export default class MainStackScreen extends Component {
         <MainStack.Screen
           name="MyAddress"
           component={MyAddress}
+          options={{headerShown: false}}
+        />
+        <MainStack.Screen
+          name="MyOrders"
+          component={MyOrders}
+          options={{headerShown: false}}
+        />
+        <MainStack.Screen
+          name="NewAddress"
+          component={NewAddress}
           options={{headerShown: false}}
         />
       </MainStack.Navigator>
