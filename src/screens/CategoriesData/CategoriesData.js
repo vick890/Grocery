@@ -19,6 +19,7 @@ import {
 import ImageLoad from 'react-native-image-placeholder';
 import AppHeader from '../../components/AppHeader';
 import CategoryData from '../../components/CategoryData';
+
 const Specialofferdata = [
   {
     id: 1,
@@ -117,8 +118,14 @@ class CategoriesData extends Component {
   render() {
     const {enableForAdd, cardValue} = this.state;
     return (
-      <View style={{flex: 1, backgroundColor: UiColor.WHITE}}>
-        <AppHeader props={this.props} />
+      <View style={{flex: 1, }}>
+        <AppHeader 
+          props={this.props} 
+          bgColor={UiColor.ORANGE}
+          barType='light-content'
+          name='Category Data'
+          showIcon={true}
+        />
         <View style={styles.filterConatiner}>
           <TouchableOpacity
             activeOpacity={0.7}
@@ -138,7 +145,7 @@ class CategoriesData extends Component {
           enableForAdd={enableForAdd}
           cardValue={cardValue}
         />
-        <View style={styles.buttonbox}>
+        {/* <View style={styles.buttonbox}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -148,7 +155,7 @@ class CategoriesData extends Component {
             }}>
             <Text style={styles.button_text}>Proceed to Pay</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     );
   }

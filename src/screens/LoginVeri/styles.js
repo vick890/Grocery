@@ -1,4 +1,4 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor,Spacing} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h} from '../../utils/Dimensions';
 
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginVertical: 25,
   },
   loginContainer: {
-    marginHorizontal: 20,
+    marginHorizontal: Spacing.SCALE_20,
     height: h(9.5),
     backgroundColor: UiColor.GRAY,
   },
@@ -49,17 +49,18 @@ export default StyleSheet.create({
   },
   button: {
     height: h(7),
-    marginTop: 30,
+    marginTop: Spacing.SCALE_20,
     backgroundColor: UiColor.ORANGE,
     width: w(40),
     alignSelf: 'center',
-    borderRadius: 15,
+    borderRadius: Spacing.SCALE_20,
+    justifyContent:'center',
+    alignItems:'center'
   },
   buttonText: {
     fontSize: TextSize.h6,
     fontFamily: FontFamily.SEMIBOLD,
     textAlign: 'center',
-    paddingTop: 10,
     color: UiColor.WHITE,
   },
   otpouterbox: {

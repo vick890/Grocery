@@ -37,7 +37,7 @@ export default class CategoryData extends Component {
     const {data, enableForAdd, cardValue} = this.props;
     return (
       <View style={{flex: 1}}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <FlatList
             data={data}
             horizontal={false}

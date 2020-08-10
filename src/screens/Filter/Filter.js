@@ -6,7 +6,7 @@ import {TouchableOpacity, FlatList} from 'react-native-gesture-handler';
 import {color} from 'react-native-reanimated';
 import CheckBox from '@react-native-community/checkbox';
 
-import {TextColor} from '../../theme';
+import {TextColor, UiColor, Spacing} from '../../theme';
 const checboxPrice = [
   {
     name: '₹100 to 200',
@@ -95,7 +95,12 @@ export default class Filter extends Component {
     const {priceClick, brandClick, discountClick} = this.state;
     return (
       <View style={{flex: 1}}>
-        <AppHeader props={this.props} />
+        <AppHeader 
+          props={this.props} 
+          barType='light-content'
+          bgColor={UiColor.ORANGE}
+          showIcon={true}
+        />
         <View style={{flexDirection: 'row', flex: 1}}>
           <View style={styles.typeContainer}>
             <TouchableOpacity activeOpacity={0.4} onPress={() => this._price()}>
@@ -142,8 +147,7 @@ export default class Filter extends Component {
                   <View
                     style={{
                       flexDirection: 'row',
-                      marginHorizontal: 5,
-                      marginVertical: 5,
+                      margin:Spacing.SCALE_5
                     }}>
                     <CheckBox
                       disabled={false}

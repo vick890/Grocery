@@ -22,6 +22,10 @@ export const UiColor = {
   PURPALE: '#FfAC5f',
   MODULE_TYPE: '#7fd5df',
   SKY_BLUE: '#25bdc0',
+  Light_Blue:'rgba(51, 150, 205, 0.2)',
+  Light_Black_Border:'rgba(0,0,0,0.1)',
+  Blue:'#224bd3',
+  WhatsAppGreen:'#4caf50'
 };
 
 export const TextColor = {

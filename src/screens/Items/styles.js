@@ -1,4 +1,4 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor, Spacing, FontSize} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h, width, height} from '../../utils/Dimensions';
 
@@ -9,45 +9,42 @@ export default StyleSheet.create({
   },
 
   TopProductcardContainer: {
-    elevation: 5,
+    // elevation: 5,
     borderRadius: 10,
-    marginHorizontal: 5,
-    marginBottom: 20,
-    width: w(33),
-    paddingTop: 5,
+    width: Spacing.SCALE_130,
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.1)',
+    paddingTop:Spacing.SCALE_10,
+    marginHorizontal:Spacing.SCALE_5
   },
   TopProductImage: {
-    height: 60,
-    width: 45,
-    marginTop: 20,
-    marginLeft: 35,
+    height: Spacing.SCALE_90,
+    width: Spacing.SCALE_60,
+    alignSelf:'center'
   },
   topProductPlaceholder: {
     resizeMode: 'contain',
-    height: 10,
+    height: Spacing.SCALE_10,
     tintColor: UiColor.GRAY,
   },
-
   amount: {
-    fontSize: TextSize.h8,
+    fontSize: FontSize.FONT_SIZE_14,
     fontFamily: FontFamily.SEMIBOLD,
-    paddingLeft: 10,
-    paddingTop: 5,
   },
   categoryTitle: {
-    fontSize: 8,
+    fontSize: FontSize.FONT_SIZE_12,
     color: TextColor.GRAY,
-    paddingHorizontal: 10,
     fontFamily: FontFamily.REGULAR,
   },
   cartbutton: {
-    width: w(30.7),
     height: h(4),
-    marginTop: 10,
-    marginLeft: 4,
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10,
     backgroundColor: UiColor.ORANGE,
+    bottom:0,
+    left:0,
+    right:0,
+    position:'absolute'
   },
   cartText: {
     color: UiColor.WHITE,
@@ -57,25 +54,29 @@ export default StyleSheet.create({
     fontSize: TextSize.h8,
   },
   amountContainer: {
-    height: '9%',
-    marginHorizontal: 10,
+    height: Spacing.SCALE_40,
+    marginHorizontal: Spacing.SCALE_10,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    paddingHorizontal:Spacing.SCALE_10,
+    marginTop:Spacing.SCALE_10
   },
   amountText: {
-    fontSize: TextSize.bigSize,
-    padding: 10,
+    fontSize: FontSize.FONT_SIZE_20,
     fontFamily: FontFamily.SEMIBOLD,
   },
   productTitle: {
-    fontSize: TextSize.h5,
+    fontSize: FontSize.FONT_SIZE_16,
     color: TextColor.GRAY,
-    paddingHorizontal: 20,
+    paddingHorizontal: Spacing.SCALE_20,
   },
   productQuantity: {
     height: '6%',
     width: '18%',
-    marginHorizontal: 20,
+    marginHorizontal: Spacing.SCALE_20,
     borderRadius: 2,
-    marginVertical: 10,
+    marginVertical: Spacing.SCALE_10,
     backgroundColor: UiColor.GRAY,
   },
   quantityText: {
@@ -88,14 +89,19 @@ export default StyleSheet.create({
     backgroundColor: UiColor.GRAY,
   },
   descTitle: {
-    paddingHorizontal: 20,
-    paddingVertical: 5,
+    paddingHorizontal: Spacing.SCALE_20,
+    paddingVertical: Spacing.SCALE_5,
     fontFamily: FontFamily.SEMIBOLD,
     color: TextColor.GRAY,
     fontSize: TextSize.h4,
   },
 
   inputDesc: {
-    padding: 20,
+    padding: Spacing.SCALE_20,
   },
+  AddCartBtn:{
+    borderWidth:1.2,
+    padding:Spacing.SCALE_5,
+    borderColor:UiColor.ORANGE
+  }
 });

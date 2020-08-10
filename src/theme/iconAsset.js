@@ -7,6 +7,7 @@ export const IconAsset = {
   ic_support: require('../assets/icons/ic_support.png'),
   ic_order: require('../assets/icons/ic_order.png'),
   ic_checkout_arrow: require('../assets/icons/ic_checkout_arrow.png'),
+  ic_right_chevron:require('../assets/icons/left_Chevron.png')
 };
 
 export const ImageAsset = {

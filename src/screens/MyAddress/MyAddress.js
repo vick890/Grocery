@@ -58,7 +58,12 @@ export default class MyAddress extends Component {
     const {editAddress, selectedIndex} = this.state;
     return (
       <View style={styles.mainContainer}>
-        <AppHeader props={this.props} />
+        <AppHeader 
+          props={this.props} 
+          bgColor={UiColor.ORANGE} 
+          showIcon={true}
+          showIcon={true}
+        />
         <View style={{flex: 1}}>
           <FlatList
             data={addressdata}

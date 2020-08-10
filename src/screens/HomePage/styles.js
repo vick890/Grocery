@@ -1,6 +1,7 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor, Spacing, FontSize} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h, width, height} from '../../utils/Dimensions';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default StyleSheet.create({
   container: {
@@ -8,14 +9,14 @@ export default StyleSheet.create({
     backgroundColor: UiColor.WHITE,
   },
   searchContainer: {
-    marginVertical: 10,
-    height: h(5.5),
+    marginVertical: Spacing.SCALE_10,
+    height: Spacing.SCALE_40,
     width: '75%',
-    marginLeft: 10,
+    marginLeft: Spacing.SCALE_10,
   },
   search: {
     backgroundColor: UiColor.GRAY_BACKGROUND,
-    height: h(6),
+    // height: Spacing.SCALE_40,
   },
   filter: {
     height: h(6),
@@ -41,67 +42,70 @@ export default StyleSheet.create({
     marginVertical: 10,
   },
   circleImage: {
-    height: 60,
-    width: 60,
-    borderRadius: 80,
+    height: Spacing.SCALE_80,
+    width: Spacing.SCALE_80,
+    borderRadius: Spacing.SCALE_80 /2,
     elevation: 5,
     alignSelf: 'center',
   },
   bottomLine: {
     borderWidth: 0.5,
     height: 1,
-    width: 330,
+    width: '100%',
     marginHorizontal: 10,
     marginVertical: 5,
     borderColor: UiColor.GRAYLINE,
   },
   circleImageTextContainer: {
     flexDirection: 'row',
-    width: 100,
+    width: Spacing.SCALE_100,
   },
   circleImageText: {
-    paddingLeft: 25,
+    paddingLeft: Spacing.SCALE_20,
     color: TextColor.GRAY,
-    fontSize: TextSize.h9,
+    fontSize: Spacing.SCALE_11,
     fontFamily: FontFamily.REGULAR,
   },
   productContainer: {
     backgroundColor: UiColor.GRAY_BACKGROUND,
     flex: 2,
+    paddingVertical:Spacing.SCALE_20
   },
   seeAllContainer: {
     flexDirection: 'row',
     borderTopWidth: 0.5,
-    paddingHorizontal: 10,
+    paddingHorizontal: Spacing.SCALE_10,
     borderColor: UiColor.GRAY,
     justifyContent: 'space-between',
     backgroundColor: UiColor.GRAY,
   },
   productsHeadingText: {
-    paddingLeft: 10,
+    paddingBottom: Spacing.SCALE_10,
     fontSize: TextSize.h6,
     fontFamily: FontFamily.SEMIBOLD,
     color: TextColor.DARK_GRAY,
   },
   seeAllText: {
-    paddingRight: 10,
-    fontSize: TextSize.h8,
+    fontSize: FontSize.FONT_SIZE_14,
     fontFamily: FontFamily.SEMIBOLD,
     color: TextColor.ORANGE,
   },
   TopProductcardContainer: {
     elevation: 5,
     borderRadius: 10,
-    marginHorizontal: 5,
-    marginBottom: 20,
+    marginHorizontal: Spacing.SCALE_5,
+    marginBottom: Spacing.SCALE_20,
     width: w(33),
-    paddingTop: 5,
+    paddingTop: Spacing.SCALE_5,
+    backgroundColor:UiColor.WHITE,
+    borderWidth:2,
+    borderColor:'rgba(0,0,0,0.1)'
   },
   TopProductImage: {
-    height: 60,
-    width: 45,
-    marginTop: 20,
-    marginLeft: 35,
+    height: Spacing.SCALE_80,
+    width: Spacing.SCALE_60,
+    // marginTop: 20,
+    // marginLeft: 35,
   },
   topProductPlaceholder: {
     resizeMode: 'contain',
@@ -120,22 +124,24 @@ export default StyleSheet.create({
     height: 10,
   },
   amount: {
-    fontSize: TextSize.h8,
+    fontSize: FontSize.FONT_SIZE_16,
     fontFamily: FontFamily.SEMIBOLD,
-    paddingLeft: 10,
-    paddingTop: 5,
+    paddingTop: Spacing.SCALE_2,
+  },
+  weightBtn:{
+    fontSize:FontSize.FONT_SIZE_20,
+    color: UiColor.ORANGE,
+    fontWeight:'bold'
   },
   productTitle: {
-    fontSize: 8,
+    fontSize: FontSize.FONT_SIZE_12,
     color: TextColor.GRAY,
-    paddingHorizontal: 10,
+    // paddingHorizontal: Spacing.SCALE_10,
     fontFamily: FontFamily.REGULAR,
   },
   cartbutton: {
-    width: w(30.7),
     height: h(4),
-    marginTop: 10,
-    marginLeft: 4,
+    marginTop: Spacing.SCALE_10,
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10,
     backgroundColor: UiColor.ORANGE,
@@ -143,14 +149,15 @@ export default StyleSheet.create({
   cartText: {
     color: UiColor.WHITE,
     textAlign: 'center',
-    paddingTop: 3,
+    paddingTop: Spacing.SCALE_3,
     fontFamily: FontFamily.BOLD,
     fontSize: TextSize.h8,
   },
   specialOfferPlaceholder: {
-    resizeMode: 'center',
-    height: 5,
     tintColor: UiColor.GRAY,
+    height:Spacing.SCALE_20,
+    width:Spacing.SCALE_70,
+    resizeMode:'cover'
   },
 
   SpecialOfferscardContainer: {
@@ -158,33 +165,34 @@ export default StyleSheet.create({
     flexDirection: 'column',
     elevation: 3,
     borderRadius: 10,
-    marginHorizontal: 10,
+    marginHorizontal: Spacing.SCALE_10,
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.1)'
   },
   Offersimage: {
-    height: 100,
-    width: 100,
+    height:Spacing.SCALE_70,
+    // width: Spacing.SCALE_100,
+    flex:0.6,
     borderRadius: 40,
-    marginHorizontal: 10,
+    marginHorizontal: Spacing.SCALE_10,
   },
   title: {
     alignSelf: 'flex-start',
-    paddingTop: 15,
-    fontSize: TextSize.h8,
-    paddingLeft: 10,
+    fontSize: FontSize.FONT_SIZE_14,
+    // paddingLeft: 10,
     fontFamily: FontFamily.BOLD,
     color: TextColor.GREEN,
   },
   category: {
     alignSelf: 'flex-start',
-    paddingLeft: 7,
-    fontSize: TextSize.h8,
+    fontSize: FontSize.FONT_SIZE_12,
     fontFamily: FontFamily.BOLD,
     color: TextColor.GRAY,
   },
   subcategories: {
     alignSelf: 'flex-start',
-    paddingLeft: 10,
-    fontSize: TextSize.h9,
+    // paddingLeft: 10,
+    fontSize: Spacing.SCALE_12,
     fontFamily: FontFamily.REGULAR,
     color: TextColor.GRAY,
   },
@@ -192,25 +200,23 @@ export default StyleSheet.create({
     backgroundColor: UiColor.WHITE,
     flexDirection: 'column',
     elevation: 3,
-    borderRadius: 4,
-    marginHorizontal: 10,
-    paddingVertical: 10,
+    borderRadius: 5,
+    marginHorizontal: Spacing.SCALE_10,
+    paddingVertical: Spacing.SCALE_10,
   },
   Vegetableimage: {
-    height: 60,
-    width: 100,
-    borderRadius: 40,
+    height: Spacing.SCALE_65,
+    width: Spacing.SCALE_100,
+    flex:0.4,
     marginHorizontal: 10,
   },
   Vegetabletitle: {
-    fontSize: TextSize.h7,
+    fontSize: FontSize.FONT_SIZE_16,
     fontFamily: FontFamily.REGULAR,
-    color: TextColor.GRAY,
-    paddingLeft: 10,
+    color: TextColor.LIGHT_BLACK,
   },
   bracketTitle: {
-    fontSize: 8,
-    paddingTop: 4,
+    fontSize: FontSize.FONT_SIZE_11,
     color: TextColor.GRAY,
   },
   slideDot: {

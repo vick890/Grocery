@@ -3,7 +3,7 @@ import {Text, View, StatusBar, SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import RootStackScreen from './src/routing/RootStackScreen';
-import {UiColor} from './src/theme';
+import {UiColor, Spacing} from './src/theme';
 import MainStackScreen from './src/routing/MainStackScreen';
 import BottomTabStackScreen from './src/routing/BottomTabStackScreen';
 import MyAddress from './src/screens/MyAddress';
@@ -13,11 +13,14 @@ const StackApp = createStackNavigator();
 class App extends Component {
   render() {
     return (
-      <SafeAreaView style={{flex: 1}}>
-        <StatusBar backgroundColor={UiColor.ORANGE} />
-
+      <SafeAreaView style={{
+        flex: 1,
+        backgroundColor:UiColor.WHITE,
+        paddingTop:Spacing.SCALE_25
+        }}>
+        {/* <StatusBar backgroundColor={UiColor.ORANGE} /> */}
         <NavigationContainer>
-          <StackApp.Navigator initialRouteName="Login">
+          <StackApp.Navigator initialRouteName="Home">
             <StackApp.Screen
               name="Login"
               component={RootStackScreen}

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Text, View, Image} from 'react-native';
-import {UiColor, ImageAsset, IconAsset} from '../../theme';
+import {UiColor, ImageAsset, IconAsset, Spacing} from '../../theme';
 import styles from './styles';
 
 class HomePageHeader extends Component {
   render() {
     return (
-      <View>
+      <View >
         <View style={styles.container}>
           <View style={styles.headerContainer}>
             <Image

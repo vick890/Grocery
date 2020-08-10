@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import {Text, View, FlatList, TouchableOpacity, TextInput} from 'react-native';
 import {SliderBox} from 'react-native-image-slider-box';
-import {ImageAsset, IconAsset, UiColor, TextColor} from '../../theme';
+import {ImageAsset, IconAsset, UiColor, TextColor, Spacing, FontSize} from '../../theme';
 import styles from './styles';
 import AppHeader from '../../components/AppHeader';
 import ImageLoad from 'react-native-image-placeholder';
-import {ScrollView} from 'react-native-gesture-handler';
+import {ScrollView, TouchableHighlight} from 'react-native-gesture-handler';
 
 const imagecollection = [
-  ImageAsset.fruitsveg_image,
-  ImageAsset.grocery_image,
-  ImageAsset.fruitsveg_image,
-  ImageAsset.grocery_image,
-  ImageAsset.fruitsveg_image,
+  'https://www.pngitem.com/pimgs/m/241-2413626_grocery-transparent-images-png-grocery-png-png-download.png',
+  'https://www.emarketoffers.com/wp-content/uploads/2020/02/Up-to-40-off-on-Personal-Care-and-Grocery-Products.png',
+  'https://i.pinimg.com/originals/bb/b2/26/bbb226401ef104c0abc1ab0b9209b370.png',
+ 'https://i.pinimg.com/originals/33/fe/86/33fe8689149934ea6d63f6f879955b8a.png',
 ];
 const Specialofferdata = [
   {
@@ -90,20 +89,30 @@ class Items extends Component {
     };
   }
   render() {
+    const {params} = this.props.route
+    console.log('params checking',params)
     return (
       <View style={styles.container}>
-        <AppHeader props={this.props} />
-        <ScrollView>
+        <AppHeader 
+          props={this.props} 
+          bgColor={UiColor.ORANGE}  
+          barType='light-content'
+          showIcon={true}
+        />
+        <ScrollView 
+          contentContainerStyle={{paddingBottom:Spacing.SCALE_50}}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={{backgroundColor: UiColor.GRAY_BACKGROUND}}>
             <SliderBox
               ImageComponentStyle={{
                 borderRadius: 5,
-                marginBottom: 30,
-                marginTop: 20,
+                marginBottom: Spacing.SCALE_30,
+                marginTop: Spacing.SCALE_20,
                 backgroundColor: UiColor.GRAY,
               }}
               imageLoadingColor={UiColor.ORANGE}
-              sliderBoxHeight={180}
+              sliderBoxHeight={Spacing.SCALE_180}
               dotColor={UiColor.ORANGE}
               dotStyle={styles.slideDot}
               paginationBoxVerticalPadding={0}
@@ -115,10 +124,13 @@ class Items extends Component {
           </View>
           <View>
             <View style={styles.amountContainer}>
-              <Text style={styles.amountText}>₹ 85</Text>
+              <Text style={styles.amountText}>₹{params?.price}</Text>
+              <TouchableHighlight style={styles.AddCartBtn}>
+                <Text style={{color:UiColor.ORANGE,fontSize:FontSize.FONT_SIZE_14}}>Add to Cart +</Text>
+              </TouchableHighlight>
             </View>
             <Text style={styles.productTitle}>
-              Fortune Soya health Refined soyabean oil Pouch
+              {params?.name}
             </Text>
             <View style={styles.productQuantity}>
               <Text style={styles.quantityText}>Unit -1L</Text>
@@ -133,20 +145,19 @@ class Items extends Component {
                 value={this.state.desc}
               />
             </View>
-
             <FlatList
               data={Specialofferdata}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              style={{
-                flex: 1,
+              contentContainerStyle={{
                 marginVertical: 0,
                 backgroundColor: UiColor.GRAY,
+                paddingHorizontal:Spacing.SCALE_10,
               }}
               renderItem={({item}) => (
-                <View>
+                // <View>
                   <View style={styles.TopProductcardContainer}>
-                    <View>
+                    {/* <View> */}
                       <TouchableOpacity
                         onPress={() => {
                           this.props.navigation.navigate('Items');
@@ -164,22 +175,21 @@ class Items extends Component {
                           source={item.image}
                         />
                       </TouchableOpacity>
-
-                      <View style={{flexDirection: 'column'}}>
-                        <Text style={styles.amount}> ₹ {item.amount}</Text>
-                        <View style={{width: 160}}>
+                      <View style={{flexDirection: 'column',paddingHorizontal:Spacing.SCALE_10,marginTop:Spacing.SCALE_5}}>
+                        <Text style={styles.amount}> ₹{item.amount}</Text>
+                        {/* <View style={{width: 160}}> */}
                           <Text style={styles.categoryTitle}>
                             {' '}
                             {item.category}
                           </Text>
-                        </View>
+                        {/* </View> */}
                       </View>
-                    </View>
+                    {/* </View> */}
                     <TouchableOpacity style={styles.cartbutton}>
                       <Text style={styles.cartText}>Add to Cart</Text>
                     </TouchableOpacity>
                   </View>
-                </View>
+                // </View>
               )}
               keyExtractor={(item, index) => index.toString()}
             />
