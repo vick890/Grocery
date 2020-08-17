@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {UiColor, IconAsset, TextColor} from '../theme';
+import {UiColor, IconAsset, TextColor,Spacing,FontSize} from '../theme';
 import MainStackScreen from './MainStackScreen';
 import MyOrders from '../screens/MyOrders';
 import Supports from '../screens/Supports';
 import Accounts from '../screens/Accounts';
+import MyCart from '../screens/MyCart/myCart';
 import MyAddress from '../screens/MyAddress';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -13,7 +14,6 @@ const Tab = createMaterialBottomTabNavigator();
 export default class BottomTabStackScreen extends Component {
   render() {
     const {navigation} = this.props;
-
     return (
       <Tab.Navigator
         initialRouteName="Home"
@@ -30,13 +30,13 @@ export default class BottomTabStackScreen extends Component {
             tabBarIcon: ({focused}) => {
               return focused ? (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_home}
                   style={styles.activeImage}
                 />
               ) : (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_home}
                   style={styles.inActiveImage}
                 />
@@ -45,21 +45,21 @@ export default class BottomTabStackScreen extends Component {
           }}
         />
         <Tab.Screen
-          name="MyOrders"
-          component={MyOrders}
+          name="MyCart"
+          component={MyCart}
           options={{
-            tabBarLabel: 'MyOrder',
+            tabBarLabel: 'MyCart',
             tabBarColor: UiColor.WHITE,
             tabBarIcon: ({focused}) => {
               return focused ? (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_order}
                   style={styles.activeImage}
                 />
               ) : (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_order}
                   style={styles.inActiveImage}
                 />
@@ -71,18 +71,18 @@ export default class BottomTabStackScreen extends Component {
           name="Support"
           component={Supports}
           options={{
-            tabBarLabel: 'Support',
+            tabBarLabel: 'Supportt',
             tabBarColor: UiColor.WHITE,
             tabBarIcon: ({focused}) => {
               return focused ? (
                 <Image
-                  resizeMode="center"
+                  resizeMode='contain'
                   source={IconAsset.ic_support}
                   style={styles.activeImage}
                 />
               ) : (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_support}
                   style={styles.inActiveImage}
                 />
@@ -91,23 +91,23 @@ export default class BottomTabStackScreen extends Component {
           }}
         />
         <Tab.Screen
-          // name="Account"
+          name="Accounts"
           //component={Accounts}
-          name="MyAddress"
-          component={MyAddress}
+          // name="MyAddress"
+          component={Accounts}
           options={{
             tabBarLabel: 'Account',
             tabBarColor: UiColor.WHITE,
             tabBarIcon: ({focused}) => {
               return focused ? (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_accounts}
                   style={styles.activeImage}
                 />
               ) : (
                 <Image
-                  resizeMode="center"
+                  resizeMode="contain"
                   source={IconAsset.ic_accounts}
                   style={styles.inActiveImage}
                 />
@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
   activeImage: {
     width: 30,
     height: 25,
-    marginHorizontal: 8,
-    marginBottom: 2,
+    // marginHorizontal: 8,
+    // marginBottom: 2,
     tintColor: UiColor.ORANGE,
   },
   inActiveImage: {

@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import AppHeader from '../../components/AppHeader';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
-import {TextSize} from '../../theme';
+import {TextSize, UiColor} from '../../theme';
 const data = [
   {
     category: 'Grocery & Staples',
@@ -42,7 +42,13 @@ class ShopByCategories extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AppHeader props={this.props} />
+        <AppHeader 
+          props={this.props} 
+          barType='light-content' 
+          bgColor={UiColor.ORANGE} 
+          showIcon={true}
+          name='Shop By Category'
+        />
         <FlatList
           data={data}
           extraData={this.state}
@@ -86,11 +92,12 @@ class ShopByCategories extends Component {
                   data={item.subCatergories}
                   extraData={this.state}
                   style={{flex: 1}}
+                  showsVerticalScrollIndicator={false}
                   renderItem={({item: subCatergories}) => (
                     <View style={styles.innerContainer}>
                       <TouchableOpacity
                         onPress={() =>
-                          this.props.navigation.navigate('CategoriesData')
+                          this.props.navigation.navigate('CategoriesData',{name:subCatergories})
                         }>
                         <Text style={styles.innerContainerText}>
                           {subCatergories}

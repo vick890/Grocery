@@ -12,12 +12,14 @@
   "dependencies": {
     "@react-native-community/checkbox": "^0.4.2",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/toolbar-android": "^0.1.0-rc.2",
     "@react-navigation/material-bottom-tabs": "^5.2.14",
     "@react-navigation/native": "^5.7.1",
     "@react-navigation/stack": "^5.7.1",
     "@twotalltotems/react-native-otp-input": "^1.1.5",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-dropdown-picker": "^3.1.11",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-image-placeholder": "^1.0.14",
     "react-native-image-slider-box": "^1.0.12",
@@ -25,6 +27,7 @@
     "react-native-reanimated": "^1.10.1",
     "react-native-safe-area-context": "^3.1.1",
     "react-native-screens": "^2.9.0",
+    "react-native-step-indicator": "^1.0.3",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {

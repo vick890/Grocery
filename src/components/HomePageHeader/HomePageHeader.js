@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {Text, View, Image} from 'react-native';
-import {UiColor, ImageAsset, IconAsset} from '../../theme';
+import {UiColor, ImageAsset, IconAsset, Spacing} from '../../theme';
 import styles from './styles';
 
 class HomePageHeader extends Component {
   render() {
     return (
-      <View>
-        <View style={styles.container}>
           <View style={styles.headerContainer}>
             <Image
               style={styles.logoimage}
@@ -23,8 +21,6 @@ class HomePageHeader extends Component {
               source={IconAsset.ic_shopping_cart}
             />
           </View>
-        </View>
-      </View>
     );
   }
 }

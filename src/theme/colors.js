@@ -10,6 +10,7 @@ export const UiColor = {
   GREEN: '#38e138',
   RED: '#DB4437',
   ORANGE: '#DB6517',
+  light_orange:'rgba(219, 101, 23 ,0.9)',
   NAVY_BLUE: '#25bdc0',
   WHITE: '#ffffff',
   BLACK: '#000000',
@@ -22,22 +23,28 @@ export const UiColor = {
   PURPALE: '#FfAC5f',
   MODULE_TYPE: '#7fd5df',
   SKY_BLUE: '#25bdc0',
+  Light_Blue:'rgba(51, 150, 205, 0.2)',
+  Light_Black_Border:'rgba(0,0,0,0.1)',
+  Blue:'#224bd3',
+  WhatsAppGreen:'#4caf50',
+  searchBar_Gray:'#eaeaea',
+  grayishWhite:'#f5f5f5'
 };
 
 export const TextColor = {
   DEFAULT: '#000000',
   TEXT_PRIMARY: '#222222',
-  LIGHT_BLACK: '#37474F',
-  LIGHT_GRAY: '#818284',
+  LIGHT_GRAY: '#888888',
   GREEN: '#38e138',
   ORANGE: '#DB6517',
-  GRAY: '#37474F',
   BLACK: '#000000',
   DARK_GRAY: '#43515A',
   RED: '#DB4437',
   WHITE: '#FFFFFF',
   BLUE: '#0a84ff',
-  TEXTGRAY: 'gray',
+  TextGRAY: '#6d7274',
+  Dark_Green:'#2c6d0c',
+  cancelColor:'#d75a4a'
 };
 
 export const FontFamily = {

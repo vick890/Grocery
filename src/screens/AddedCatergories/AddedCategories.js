@@ -125,7 +125,7 @@ class AddedCategories extends Component {
     const {enableForAdd, cardValue} = this.state;
     return (
       <View style={{flex: 1, backgroundColor: UiColor.WHITE}}>
-        <AppHeader props={this.props} />
+        <AppHeader props={this.props} showIcon={true}/>
         <CategoryData
           data={Specialofferdata}
           enableForAdd={enableForAdd}

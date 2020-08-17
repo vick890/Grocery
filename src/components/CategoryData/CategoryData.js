@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -15,29 +15,28 @@ import {
   TextColor,
   TextSize,
   FontFamily,
+  Spacing,
 } from '../../theme';
 import ImageLoad from 'react-native-image-placeholder';
 
-export default class CategoryData extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cardValue: 0,
-      enableForAdd: true,
-    };
-  }
+export default CategoryData =(props) => {
+  const [cardValue,setCardValue]=  useState(0);
+  const [enableForAdd,setEnableForAdd]=  useState(true);
+  console.log('test props nsssss',props)
+  const {data} = props;
+
   _addCard = value => {
     if (value === '+') {
-      this.setState({cardValue: this.state.cardValue + 1});
+      setCardValue(cardValue+1)
     } else if (value === '-') {
-      this.setState({cardValue: this.state.cardValue - 1});
+      setCardValue(cardValue-1)
     }
   };
-  render() {
-    const {data, enableForAdd, cardValue} = this.props;
+  // render() {
+  //   const {data, enableForAdd, cardValue} = this.props;
     return (
       <View style={{flex: 1}}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <FlatList
             data={data}
             horizontal={false}
@@ -46,7 +45,7 @@ export default class CategoryData extends Component {
               backgroundColor: UiColor.GRAY,
             }}
             renderItem={({item}) => (
-              <View style={{marginVertical: 10}}>
+              <View style={{marginVertical: Spacing.SCALE_10}}>
                 <View style={styles.VegetablecardContainer}>
                   <View style={{flexDirection: 'row'}}>
                     <ImageLoad
@@ -70,23 +69,23 @@ export default class CategoryData extends Component {
                         </View>
                       </View>
                       <View style={styles.amountContainer}>
-                        <View style={{width: 40}}>
+                        <View style={{width: Spacing.SCALE_40}}>
                           <Text style={styles.amount}>₹ {item.amount}</Text>
                         </View>
-                        <View style={{width: 40}}>
+                        <View style={{width: Spacing.SCALE_40}}>
                           <Text style={styles.greenAmount}>
-                            ₹ {item.amount}
+                            ₹ {item?.amount}
                           </Text>
                         </View>
                         <View style={styles.offContainer}>
-                          <Text style={styles.offAmount}>₹ {item.amount}</Text>
+                          <Text style={styles.offAmount}>₹ {item?.amount}</Text>
                         </View>
                         <View>
                           <View style={styles.cardContainer}>
                             <View style={styles.addCard}>
                               {enableForAdd ? (
                                 <Text style={styles.addCardText}>
-                                  Add to card
+                                  Add to car
                                 </Text>
                               ) : (
                                 <View
@@ -95,7 +94,7 @@ export default class CategoryData extends Component {
                                   }}>
                                   <TouchableOpacity
                                     onPress={() => {
-                                      this._addCard('-');
+                                      _addCard('-');
                                     }}>
                                     <Text style={styles.sign}>-</Text>
                                   </TouchableOpacity>
@@ -105,9 +104,9 @@ export default class CategoryData extends Component {
 
                               <TouchableOpacity
                                 onPress={() => {
-                                  this._addCard('+');
+                                  _addCard('+');
                                 }}>
-                                <Text style={{color: UiColor.ORANGE}}>+</Text>
+                                <Text style={styles.addCardText}>+</Text>
                               </TouchableOpacity>
                             </View>
                           </View>
@@ -124,4 +123,4 @@ export default class CategoryData extends Component {
       </View>
     );
   }
-}
+// }

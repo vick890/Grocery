@@ -1,33 +1,32 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor, Spacing, FontSize} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h} from '../../utils/Dimensions';
 
 export default StyleSheet.create({
   filterConatiner: {
-    width: 85,
-    height: 30,
+    
     borderRadius: 7,
     backgroundColor: UiColor.ORANGE,
-    marginVertical: 10,
+    marginVertical: Spacing.SCALE_10,
     alignSelf: 'flex-end',
-    marginRight: 10,
+    marginRight: Spacing.SCALE_10,
   },
   filter: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems:'center',
+    width: Spacing.SCALE_100,
+    height: Spacing.SCALE_40,
   },
   filterImage: {
-    height: 20,
-    width: 20,
+    height: Spacing.SCALE_20,
+    width:Spacing.SCALE_20,
     tintColor: UiColor.WHITE,
-    margin: 5,
   },
   filterText: {
     color: TextColor.WHITE,
-    fontSize: TextSize.h6,
-    paddingRight: 10,
+    fontSize: FontSize.FONT_SIZE_16,
     fontFamily: FontFamily.SEMIBOLD,
-    paddingTop: 4,
   },
   button: {
     width: '50%',

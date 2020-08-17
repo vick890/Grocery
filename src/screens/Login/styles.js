@@ -1,4 +1,4 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor,Spacing} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h} from '../../utils/Dimensions';
 
@@ -36,29 +36,35 @@ export default StyleSheet.create({
     marginLeft: 25,
   },
   inputTextContainer: {
-    height: h(7.8),
+    // height: h(7.8),
     backgroundColor: UiColor.GRAY,
-    marginHorizontal: 25,
+    marginHorizontal: Spacing.SCALE_20,
+    paddingHorizontal:Spacing.SCALE_10,
+    marginBottom:Spacing.SCALE_20,
+    borderRadius:5
+  },
+  textInputStyle:{
+    height: h(7.8),
   },
   subText: {
     fontSize: TextSize.h8,
     color: TextColor.GRAY,
-    paddingHorizontal: 25,
+    paddingHorizontal: Spacing.SCALE_10,
     alignSelf: 'center',
   },
   button: {
     height: h(7),
-    marginTop: 30,
+    marginTop: Spacing.SCALE_20,
     backgroundColor: UiColor.ORANGE,
     width: w(40),
     alignSelf: 'center',
-    borderRadius: 15,
+    borderRadius: Spacing.SCALE_20,
+    justifyContent:'center',
+    alignItems:'center'
   },
   buttonText: {
     fontSize: TextSize.h6,
     fontFamily: FontFamily.SEMIBOLD,
-    textAlign: 'center',
-    paddingTop: 10,
     color: UiColor.WHITE,
   },
 });

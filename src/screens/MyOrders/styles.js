@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {UiColor, FontFamily, TextSize} from '../../theme';
+import {UiColor, FontFamily, TextSize, Spacing, FontSize} from '../../theme';
 import {h, w} from '../../utils/Dimensions';
 export default StyleSheet.create({
   container: {},
@@ -8,28 +8,32 @@ export default StyleSheet.create({
     backgroundColor: UiColor.WHITE,
   },
   imageContainer: {
-    alignSelf: 'center',
+    justifyContent:'center',
     alignItems: 'center',
-    marginTop: h(20),
+    height:Spacing.SCALE_300,
   },
   img: {
-    width: w(30),
-    height: h(30),
+    width: Spacing.SCALE_100,
+    height: Spacing.SCALE_100,
     tintColor: 'gray',
   },
+  emptyTxt:{
+    fontSize: FontSize.FONT_SIZE_18, 
+    color: 'gray',
+    marginTop:Spacing.SCALE_10
+  },
   btn: {
-    height: 40,
-    width: '60%',
+    width: Spacing.SCALE_200,
     backgroundColor: UiColor.ORANGE,
     alignSelf: 'center',
-    marginTop: h(25),
+    marginTop: Spacing.SCALE_20,
     borderRadius: 10,
+    paddingVertical:Spacing.SCALE_15
   },
   btnText: {
     alignSelf: 'center',
     color: UiColor.WHITE,
-    padding: 7,
     fontFamily: FontFamily.SEMIBOLD,
-    fontSize: TextSize.h6,
+    fontSize: FontSize.FONT_SIZE_16,
   },
 });

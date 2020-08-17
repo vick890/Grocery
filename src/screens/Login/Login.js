@@ -20,24 +20,24 @@ class Login extends Component {
           <Text style={styles.loginText}>Login</Text>
         </View>
         <View style={styles.enterContainer}>
-          <Text style={styles.enterText}>Enter Mobile Number </Text>
+          <Text style={styles.enterText}> Enter Mobile Number </Text>
         </View>
-        <View style={{marginTop: 5}}>
-          <View style={styles.inputTextContainer}>
-            <TextInput keyboardType="number-pad" />
-          </View>
-          <Text style={styles.subText}>
-            We will send a code to your mobile number to verify your number
-          </Text>
+        <View style={styles.inputTextContainer}>
+          <TextInput
+            keyboardType="number-pad"
+            style={styles.textInputStyle}
+            maxLength={10}
+            placeholder="Enter your contact number"
+          />
         </View>
-        <View style={{marginTop: 30}}>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('LoginVeri')}>
-            <View style={styles.button}>
-              <Text style={styles.buttonText}>Submit</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.subText}>
+          We will send a code to your mobile number to verify your number
+        </Text>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Home')}
+          style={styles.button}>
+          <Text style={styles.buttonText}>Submit</Text>
+        </TouchableOpacity>
       </ScrollView>
     );
   }

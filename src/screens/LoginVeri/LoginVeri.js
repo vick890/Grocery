@@ -49,14 +49,16 @@ class LoginVeri extends Component {
             <Text style={styles.subText}>Resend Code</Text>
           </TouchableOpacity>
         </View>
-        <View style={{marginTop: 30}}>
+        {/* <View style={{marginTop: 30}}> */}
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Home')}>
-            <View style={styles.button}>
+            onPress={() => this.props.navigation.navigate('Home')}
+            style={styles.button}
+          >
+            {/* <View style={styles.button}> */}
               <Text style={styles.buttonText}>Login</Text>
-            </View>
+            {/* </View> */}
           </TouchableOpacity>
-        </View>
+        {/* </View> */}
       </ScrollView>
     );
   }

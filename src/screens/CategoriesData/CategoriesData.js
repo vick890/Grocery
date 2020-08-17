@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -19,6 +19,7 @@ import {
 import ImageLoad from 'react-native-image-placeholder';
 import AppHeader from '../../components/AppHeader';
 import CategoryData from '../../components/CategoryData';
+
 const Specialofferdata = [
   {
     id: 1,
@@ -86,43 +87,34 @@ const Specialofferdata = [
   },
 ];
 
-class CategoriesData extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cardValue: 0,
-      enableForAdd: true,
-    };
-  }
+export default CategoriesData = (props)=> { 
+
+  const {params} = props.route
+  const [cardValue,setCardValue]=  useState(0);
+  const [enableForAdd,setEnableForAdd]=  useState(true);
+ 
   _addCard = value => {
     if (value === '+') {
-      this.setState({cardValue: this.state.cardValue + 1});
+      setCardValue(cardValue+1)
     } else if (value === '-') {
-      this.setState({cardValue: this.state.cardValue - 1});
+      setCardValue(cardValue-1)
     }
-
-    // if (this.state.cardValue === 0) {
-    //   this.setState({
-    //     enableForAdd: false,
-    //   });
-    // }
-    // if (this.state.cardValue === 0 ) {
-    //   this.setState({
-    //     enableForAdd: true,
-    //     cardValue: this.state.cardValue + 1,
-    //   });
-    //   console.log('addvalue==', this.state.cardValue);
-    // }
   };
-  render() {
-    const {enableForAdd, cardValue} = this.state;
+    console.log('props test',props)
     return (
-      <View style={{flex: 1, backgroundColor: UiColor.WHITE}}>
-        <AppHeader props={this.props} />
-        <View style={styles.filterConatiner}>
+      <View style={{flex: 1, }}>
+        <AppHeader 
+          props={props} 
+          bgColor={UiColor.ORANGE}
+          barType='light-content'
+          name={params?.name}
+          showIcon={true}
+        />
+        {/* <View style={styles.filterConatiner}> */}
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => this.props.navigation.navigate('Filter')}>
+            style={styles.filterConatiner}
+            onPress={() => props.navigation.navigate('Filter')}>
             <View style={styles.filter}>
               <Image
                 resizeMode="contain"
@@ -132,13 +124,13 @@ class CategoriesData extends Component {
               <Text style={styles.filterText}>Filter</Text>
             </View>
           </TouchableOpacity>
-        </View>
+        {/* </View> */}
         <CategoryData
           data={Specialofferdata}
           enableForAdd={enableForAdd}
           cardValue={cardValue}
         />
-        <View style={styles.buttonbox}>
+        {/* <View style={styles.buttonbox}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -148,9 +140,9 @@ class CategoriesData extends Component {
             }}>
             <Text style={styles.button_text}>Proceed to Pay</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     );
   }
-}
-export default CategoriesData;
+// }
+// export default CategoriesData;

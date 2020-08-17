@@ -1,37 +1,47 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {
+  UiColor,
+  FontFamily,
+  TextSize,
+  TextColor,
+  Spacing,
+  FontSize,
+} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h} from '../../utils/Dimensions';
 
 export default StyleSheet.create({
   SpecialOfferscardContainer: {
     backgroundColor: UiColor.WHITE,
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    elevation: 3,
-    height: 120,
-    width: '90%',
-    paddingHorizontal: 10,
     borderRadius: 3,
-    marginHorizontal: 2,
-    alignSelf: 'center',
-    paddingTop: 9,
+    borderWidth: 1,
+    borderColor: UiColor.Light_Black_Border,
+    width: Spacing.SCALE_110,
+    height: Spacing.SCALE_120,
+    margin: Spacing.SCALE_10,
   },
   Offersimage: {
-    height: 90,
-    width: w(20),
+    height: Spacing.SCALE_90,
+    width: Spacing.SCALE_60,
     borderRadius: 20,
     alignSelf: 'center',
-    marginHorizontal: 10,
   },
   specialOfferPlaceholder: {
     resizeMode: 'contain',
-    height: 10,
+    height: Spacing.SCALE_30,
+    width: Spacing.SCALE_60,
     tintColor: UiColor.GRAY,
   },
   title: {
-    fontSize: 8,
+    fontSize: FontSize.FONT_SIZE_9,
     alignSelf: 'center',
     fontFamily: FontFamily.BOLD,
-    color: TextColor.GRAY,
+    color: TextColor.DARK_GRAY,
+  },
+  listItem: {
+    paddingBottom: Spacing.SCALE_10,
+    borderWidth: 1,
+    borderColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

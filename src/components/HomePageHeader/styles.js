@@ -6,35 +6,35 @@ import {
   TextSize,
   TextColor,
   FontFamily,
+  Spacing,
 } from '../../theme';
 
 export default StyleSheet.create({
-  container: {
-    height: 42,
-    backgroundColor: UiColor.WHITE,
-    elevation: 3,
-  },
+ 
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems:'center',
+    paddingTop:Spacing.SCALE_10
   },
   logoimage: {
-    width: 70,
-    height: 30,
-    margin: 10,
+    width: Spacing.SCALE_70,
+    height: Spacing.SCALE_30,
+    flex:0.5,
   },
   titleContainer: {
-    width: 150,
+    flex:1,
+    alignItems:'center'
   },
   titleText: {
-    marginVertical: 10,
+    marginVertical: Spacing.SCALE_10,
     fontSize: TextSize.h6,
     color: TextColor.GRAY,
     fontFamily: FontFamily.SEMIBOLD,
   },
   shoppingCartContainer: {
-    width: 25,
-    height: 25,
-    margin: 10,
+    flex:0.2,
+    width: Spacing.SCALE_25,
+    height: Spacing.SCALE_25,
   },
 });

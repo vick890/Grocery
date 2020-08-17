@@ -4,6 +4,7 @@ import styles from './styles';
 import AppHeader from '../../components/AppHeader';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import {UiColor} from '../../theme';
+
 const addressdata = [
   {
     address:
@@ -21,26 +22,7 @@ const addressdata = [
     address:
       'House NO -45 Street Number - Noida sector 64, Uttar Pradesh ,987678990',
   },
-  {
-    address:
-      'House NO -45 Street Number - Noida sector 64, Uttar Pradesh ,987678990',
-  },
-  {
-    address:
-      'House NO -45 Street Number - Noida sector 64, Uttar Pradesh ,987678990',
-  },
-  {
-    address:
-      'House NO -45 Street Number - Noida sector 64, Uttar Pradesh ,987678990',
-  },
-  {
-    address:
-      'House NO -45 Street Number - Noida sector 64, Uttar Pradesh ,987678990',
-  },
-  {
-    address:
-      'House NO -45 Street Number - Noida sector 64, Uttar Pradesh ,987678990',
-  },
+
 ];
 
 export default class MyAddress extends Component {
@@ -58,10 +40,17 @@ export default class MyAddress extends Component {
     const {editAddress, selectedIndex} = this.state;
     return (
       <View style={styles.mainContainer}>
-        <AppHeader props={this.props} />
+        <AppHeader
+          props={this.props} 
+          bgColor={UiColor.ORANGE} 
+          showIcon={true}
+          showIcon={true}
+          name='Address'
+        />
         <View style={{flex: 1}}>
           <FlatList
             data={addressdata}
+            showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
               <TouchableOpacity
                 activeOpacity={0.9}
@@ -87,11 +76,11 @@ export default class MyAddress extends Component {
         <View style={styles.buttonbox}>
           <TouchableOpacity
             style={styles.button}
-            // onPress={() => {
-            //   {
-            //     this.props.navigation.navigate('AddedCategories');
-            //   }
-            // }}
+            onPress={() => {
+              {
+                this.props.navigation.navigate('NewAddress');
+              }
+            }}
           >
             <Text style={styles.button_text}>Add New Address</Text>
           </TouchableOpacity>

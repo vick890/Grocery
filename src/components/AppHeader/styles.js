@@ -1,37 +1,41 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor, Spacing, FontSize} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h} from '../../utils/Dimensions';
 
 export default StyleSheet.create({
   container: {
-    height: 42,
     backgroundColor: UiColor.ORANGE,
-    elevation: 3,
+    paddingTop:Spacing.SCALE_5,
+    justifyContent:'center',
+    marginTop:Spacing.SCALE_23
   },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   backIcon: {
-    width: 25,
-    height: 20,
-    marginHorizontal: 10,
-    marginVertical: 7,
+    width:Spacing.SCALE_25,
+    height: Spacing.SCALE_30,
+    marginHorizontal: Spacing.SCALE_10,
+    marginVertical: Spacing.SCALE_7,
   },
   titleContainer: {
-    width: 250,
+    width: Spacing.SCALE_180,
   },
   titleText: {
-    marginVertical: 5,
-    fontFamily: FontFamily.BOLD,
-    fontSize: TextSize.h4,
+    marginVertical: Spacing.SCALE_5,
+    fontFamily: FontFamily.REGULAR,
+    fontSize: FontSize.FONT_SIZE_18,
     color: TextColor.WHITE,
   },
+  cartBtn:{
+    marginHorizontal: Spacing.SCALE_10,
+    marginVertical: Spacing.SCALE_6,
+    padding:Spacing.SCALE_5
+    },
   shoppingCartContainer: {
-    width: 25,
-    height: 25,
-    marginHorizontal: 10,
-    marginVertical: 6,
+    width: Spacing.SCALE_25,
+    height: Spacing.SCALE_25,
     tintColor: UiColor.WHITE,
   },
 });

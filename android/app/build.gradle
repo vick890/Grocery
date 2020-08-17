@@ -80,7 +80,7 @@ project.ext.react = [
     enableHermes: false,  // clean and rebuild if changing
 ]
 
-apply from: "../../node_modules/react-native/react.gradle"
+// apply from: "../../node_modules/react-native/react.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -95,7 +95,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -131,8 +131,9 @@ android {
         applicationId "com.yump"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 3
         versionName "1.0"
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -143,6 +144,12 @@ android {
         }
     }
     signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
@@ -152,12 +159,18 @@ android {
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
+             signingConfig signingConfigs.release
         }
         release {
+             crunchPngs false 
+             lintOptions {
+                checkReleaseBuilds false
+                abortOnError false
+            }
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+             signingConfig signingConfigs.release
+            // signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -181,6 +194,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'androidx.multidex:multidex:2.0.1' 
 
 implementation project(':react-native-vector-icons')
     if (enableHermes) {

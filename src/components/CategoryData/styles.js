@@ -1,4 +1,4 @@
-const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
+const {UiColor, FontFamily, TextSize, TextColor, Spacing, FontSize} = require('../../theme');
 import {StyleSheet} from 'react-native';
 import {w, h} from '../../utils/Dimensions';
 
@@ -22,21 +22,20 @@ export default StyleSheet.create({
     backgroundColor: UiColor.WHITE,
     flexDirection: 'column',
     elevation: 3,
-    marginHorizontal: 10,
-    paddingVertical: 10,
+    marginHorizontal:Spacing.SCALE_10,
+    paddingVertical: Spacing.SCALE_10,
   },
   Vegetableimage: {
-    height: 60,
-    width: 100,
+    height: Spacing.SCALE_60,
+    width: Spacing.SCALE_100,
     borderRadius: 40,
-    marginHorizontal: 10,
+    marginHorizontal: Spacing.SCALE_10,
   },
   Vegetabletitle: {
     fontSize: TextSize.h7,
     fontFamily: FontFamily.REGULAR,
     color: TextColor.GRAY,
-
-    paddingLeft: 10,
+    paddingLeft: Spacing.SCALE_10,
   },
   bracketTitle: {
     fontSize: 8,
@@ -45,50 +44,51 @@ export default StyleSheet.create({
   },
   specialOfferPlaceholder: {
     resizeMode: 'center',
-    height: 8,
+    height: Spacing.SCALE_10,
+    width:Spacing.SCALE_50,
     tintColor: UiColor.GRAY,
   },
   amount: {
-    fontSize: 10,
+    fontSize: FontSize.FONT_SIZE_10,
     fontFamily: FontFamily.SEMIBOLD,
-    paddingLeft: 10,
-    paddingTop: 5,
+    paddingLeft: Spacing.SCALE_10,
+    paddingTop: Spacing.SCALE_5,
   },
   greenAmount: {
-    fontSize: 10,
+    fontSize: FontSize.FONT_SIZE_10,
     fontFamily: FontFamily.SEMIBOLD,
     color: TextColor.GREEN,
-    paddingLeft: 10,
-    paddingTop: 5,
+    paddingLeft: Spacing.SCALE_10,
+    paddingTop: Spacing.SCALE_5,
   },
   offAmount: {
-    fontSize: 10,
-    paddingTop: 2,
+    fontSize: FontSize.FONT_SIZE_10,
+    paddingTop: Spacing.SCALE_2,
     color: TextColor.WHITE,
     fontFamily: FontFamily.SEMIBOLD,
     alignSelf: 'center',
   },
   offContainer: {
-    width: 40,
-    height: 18,
+    width:Spacing.SCALE_40,
+    height: Spacing.SCALE_20,
     marginTop: 2.5,
     backgroundColor: UiColor.GREEN,
   },
   cardContainer: {
-    width: 80,
-    height: 20,
+    width: Spacing.SCALE_80,
+    height: Spacing.SCALE_20,
     borderWidth: 0.9,
     borderColor: UiColor.ORANGE,
-    marginHorizontal: 5,
-    marginTop: 2,
+    marginHorizontal: Spacing.SCALE_5,
+    marginTop: Spacing.SCALE_2,
   },
   addCardText: {
     color: UiColor.ORANGE,
-    fontSize: 10,
-    paddingTop: 2,
+    fontSize: FontSize.FONT_SIZE_10,
+    // paddingTop: Spacing.SCALE_5,
   },
   sign: {
     color: UiColor.ORANGE,
-    paddingHorizontal: 7,
+    paddingHorizontal: Spacing.SCALE_7,
   },
 });

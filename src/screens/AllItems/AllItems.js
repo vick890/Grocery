@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import {Text, View, StatusBar, Image} from 'react-native';
+import {FlatList, TouchableHighlight} from 'react-native-gesture-handler';
 import ImageLoad from 'react-native-image-placeholder';
-import {ImageAsset} from '../../theme';
+import {ImageAsset, Spacing, FontSize} from '../../theme';
 const {UiColor, FontFamily, TextSize, TextColor} = require('../../theme');
 import styles from './styles';
 import AppHeader from '../../components/AppHeader';
@@ -83,48 +83,64 @@ const Specialofferdata = [
   },
 ];
 
-class AllItems extends Component {
-  render() {
-    return (
-      <View style={{flex: 1}}>
-        <AppHeader props={this.props} />
-
-        <FlatList
-          data={Specialofferdata}
-          horizontal={false}
-          numColumns={3}
-          style={{
-            flex: 1,
-            paddingTop: 10,
-            backgroundColor: UiColor.GRAY,
-          }}
-          renderItem={({item}) => (
-            <View style={{marginVertical: 5}}>
-              <View style={styles.SpecialOfferscardContainer}>
-                <View style={{flexDirection: 'row'}}>
-                  <ImageLoad
-                    style={styles.Offersimage}
-                    resizeMode="cover"
-                    borderRadius={10}
-                    placeholderStyle={styles.specialOfferPlaceholder}
-                    loadingStyle={{
-                      size: 'small',
-                      color: UiColor.ORANGE,
-                    }}
-                    placeholderSource={ImageAsset.logo}
-                    source={item.image}
-                  />
-                </View>
-                <View>
-                  <Text style={styles.title}>{item.category}</Text>
-                </View>
+export default (AllItems = props => {
+  const {params} = props?.route;
+  return (
+    <View style={{flex: 1}}>
+      <AppHeader
+        props={props}
+        name={params?.name}
+        bgColor={UiColor.ORANGE}
+        barType="light-content"
+        showIcon={true}
+      />
+      <FlatList
+        data={params?.data}
+        horizontal={false}
+        numColumns={3}
+        contentContainerStyle={{
+          alignItems: 'center',
+        }}
+        renderItem={({item, index}) => (
+          <TouchableHighlight
+            underlayColor={UiColor.Light_Black_Border}
+            style={styles.SpecialOfferscardContainer}
+            onPress={() => {
+              props.navigation.navigate('Items', {
+                name: item?.name,
+                price: item?.amount,
+              });
+            }}>
+            <>
+              <ImageLoad
+                style={{
+                  height: Spacing.SCALE_80,
+                }}
+                resizeMode="contain"
+                placeholderStyle={styles.specialOfferPlaceholder}
+                loadingStyle={{
+                  size: 'small',
+                  color: UiColor.ORANGE,
+                }}
+                placeholderSource={ImageAsset.logo}
+                source={{uri: item?.image}}
+              />
+              <View
+                style={{
+                  marginTop: Spacing.SCALE_10,
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                }}>
+                <Text
+                  style={{...styles.title, fontSize: FontSize.FONT_SIZE_14}}>
+                  {item?.category}
+                </Text>
               </View>
-            </View>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
-    );
-  }
-}
-export default AllItems;
+            </>
+          </TouchableHighlight>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
+  );
+});
