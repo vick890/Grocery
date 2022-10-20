@@ -24,7 +24,7 @@
     "react-native-image-placeholder": "^1.0.14",
     "react-native-image-slider-box": "^1.0.12",
     "react-native-paper": "^4.0.1",
-    "react-native-reanimated": "^1.10.1",
+    "react-native-reanimated": "^2.10.0",
     "react-native-safe-area-context": "^3.1.1",
     "react-native-screens": "^2.9.0",
     "react-native-vector-icons": "^6.6.0"
